@@ -133,7 +133,8 @@ jobs:
       - name: Pull latest from diyaps
         run: |
           git remote add diyaps https://github.com/diyaps/AndroidAPS.git || true
-          git pull diyaps master
+          git fetch diyaps master
+          git reset --hard diyaps/master
       - name: Determine JVM version from tag
         run: |
           TAG="${{ github.event.inputs.tagName }}"
